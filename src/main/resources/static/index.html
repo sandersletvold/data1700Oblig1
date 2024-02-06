@@ -8,44 +8,50 @@
     <script src="script.js" type="application/javascript"></script>
 </head>
 <body>
-<h1>
-    Bestilling av kinobiletter
-</h1>
-<label for="velgfilm">Velg film:</label>
-<select id="velgfilm">
-    <option>Konvoi</option>
-    <option>Snøsamfunnet</option>
-    <option>The Wolf of Wall Street</option>
-    <option>Bird Box</option>
-    <option>Tinder svindleren</option>
-</select>
+<div class="oppgave">
+    <h1>
+        Bestilling av kinobiletter
+    </h1>
+    <form>
+        <label for="velgfilm">Velg film:</label>
+        <select id="velgfilm">
+            <option id="default"></option>
+            <option>Konvoi</option>
+            <option>Snøsamfunnet</option>
+            <option>The Wolf of Wall Street</option>
+            <option>Bird Box</option>
+            <option>Tinder svindleren</option>
+        </select>
 
-<br><br>
-<label for="antall">Antall</label>
-<input id="antall" type="number">
+        <br><br>
+        <label for="antall">Antall</label>
+        <input id="antall" type="number">
 
-<br><br>
-<label for="fornavn">Fornavn</label>
-<input id="fornavn" type="text">
+        <br><br>
+        <label for="fornavn">Fornavn</label>
+        <input id="fornavn" type="text">
 
-<br>
-<label for="etternavn">Etternavn</label>
-<input id="etternavn" type="text">
+        <br>
+        <label for="etternavn">Etternavn</label>
+        <input id="etternavn" type="text">
 
-<br>
-<label for="telefonnr">Telefonnr</label>
-<input id="telefonnr" type="text">
+        <br>
+        <label for="telefonnr">Telefonnr</label>
+        <input id="telefonnr" type="text">
 
-<br>
-<label for="epost">Epost</label>
-<input id="epost" type="text">
+        <br>
+        <label for="epost">Epost</label>
+        <input id="epost" type="text">
+    </form>
 
-<br>
-<button>Kjøp billett</button>
+    <br>
+    <button onclick="kjopBilletter()">Kjøp billett</button>
 
-<br>
-<h2>Alle billetter</h2>
+    <br>
+    <h2>Alle billetter</h2>
+    <p id="billettfelt"></p>
 
-<button>Slett alle billettene</button>
+    <button onclick="slettBilletter()">Slett alle billettene</button>
+</div>
 </body>
 </html>
