@@ -50,15 +50,24 @@ function kjopBilletter() {
     }
 
     let ut = "";
-    if (feilmld !== "") {
-        document.getElementById("billettfelt").innerHTML = feilmld;
-    } else {
+    if (feilmld === "") {
         billettlagring.push(ordre);
         for (let billett of billettlagring) {
             ut += "Film: "+billett.film+"<br>"+"Antall: "+billett.antall+"<br>"+"Fornavn: "+billett.fornavn+"<br>"+
                 "Etternavn: "+billett.etternavn+"<br>"+"Telefonnr: "+billett.telefonnr+"<br>"+"Epost: "+billett.epost+"<br><br>";
         }
         document.getElementById("billettfelt").innerHTML = ut;
+        document.getElementById("feilmldfelt").innerHTML = "";
+
+        // Reset av input felt etter vellykket kjøp
+        document.getElementById("velgfilm").value = "";
+        document.getElementById("antall").value = "";
+        document.getElementById("fornavn").value = "";
+        document.getElementById("etternavn").value = "";
+        document.getElementById("telefonnr").value = "";
+        document.getElementById("epost").value = "";
+    } else {
+        document.getElementById("feilmldfelt").innerHTML = feilmld;
     }
 }
 
