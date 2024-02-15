@@ -2,7 +2,7 @@
 let billettlagring = [];
 
 function kjopBilletter() {
-    // Henter inputene fra HTML siden
+    /* Henter inputene fra HTML siden */
     let film = document.getElementById("velgfilm").value;
     let antall = document.getElementById("antall").value;
     let fornavn = document.getElementById("fornavn").value;
@@ -10,7 +10,7 @@ function kjopBilletter() {
     let telefonnr = document.getElementById("telefonnr").value;
     let epost = document.getElementById("epost").value;
 
-    // Deklarerer et array og definer verdiene til et objekt
+    /* Deklarerer et array og definer verdiene til et objekt */
     let ordre = {
         film : film,
         antall : antall,
@@ -20,7 +20,7 @@ function kjopBilletter() {
         epost : epost
     };
 
-    // Regler for validering
+    /* Regler for validering */
     const navnRegex = /^[A-Za-z]+$/;
     const telefonnrRegex = /^[0-9]+$/;
     const epostRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
@@ -28,7 +28,7 @@ function kjopBilletter() {
         https://emaillistvalidation.com/blog/email-validation-in-javascript-using-regular-expressions-the-ultimate-guide/
     */
 
-    // Valideringen av alle feltene
+    /* Valideringen av alle feltene */
     let feilmld = "";
     if (film === "") {
         feilmld += "Feil vedrørende din ordre ved: Velg film:"+"<br>";
@@ -49,6 +49,7 @@ function kjopBilletter() {
         feilmld += "Feil vedrørende din ordre ved: Epost"+"<br>";
     }
 
+    /* Hvis feilmld er tom string, betyr dette at alle input feltene er godkjente og billetten kjøpes */
     let ut = "";
     if (feilmld === "") {
         billettlagring.push(ordre);
@@ -66,12 +67,17 @@ function kjopBilletter() {
         document.getElementById("etternavn").value = "";
         document.getElementById("telefonnr").value = "";
         document.getElementById("epost").value = "";
+      /* Hvis ikke feilmld er en tom string, betyr dette at det er en feil i en eller flere av input feltene */
     } else {
         document.getElementById("feilmldfelt").innerHTML = feilmld;
     }
 }
 
 function slettBilletter() {
+    // Setter feltet billettene skrives ut til ""
     document.getElementById("billettfelt").innerHTML = "";
-    billettlagring.length = 0;
+    // Går gjennom lengden til billettarrayet og fjerner objektene med pop()
+    for (let i of billettlagring) {
+        billettlagring.pop();
+    }
 }
